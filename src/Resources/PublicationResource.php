@@ -55,10 +55,10 @@ class PublicationResource extends Resource
             ->schema([
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make(__('publications.content'))
+                        Forms\Components\Section::make(__('polipublications::publications.content'))
                         ->schema([
                             TextInput::make('title')
-                                ->label(__('publications.title'))
+                                ->label(__('polipublications::publications.title'))
                                 ->required()
                                 ->live(debounce: 500)
                                 ->afterStateUpdated(function (Get $get, Set $set, ?string $old, ?string $state) {
@@ -71,23 +71,23 @@ class PublicationResource extends Resource
                                 ->required()
                                 ->columnSpan(4),
                             TextInput::make('slug')
-                                ->label(__('publications.slug'))
+                                ->label(__('polipublications::publications.slug'))
                                 ->disabled()
                                 ->hidden()
                                 ->columnSpan(3),
                                 TextInput::make('authors')
-                                ->label(__('publications.authors'))
+                                ->label(__('polipublications::publications.authors'))
                                 ->columnSpan(2),
 
                             TextInput::make('source')
-                                ->label(__('publications.source'))
+                                ->label(__('polipublications::publications.source'))
                                 ->columnSpan(2),
 
                             TextInput::make('volume')
-                                ->label(__('publications.volume'))
+                                ->label(__('polipublications::publications.volume'))
                                 ->columnSpan(2),
                             TextInput::make('publisher')
-                                ->label(__('publications.publisher'))
+                                ->label(__('polipublications::publications.publisher'))
                                 ->columnSpan(2),
 
 
@@ -95,34 +95,34 @@ class PublicationResource extends Resource
                         ])->columns(4),
 
                     ])->columnSpan(2),
-                    Forms\Components\Section::make(__('publications.data'))
+                    Forms\Components\Section::make(__('polipublications::publications.data'))
         ->schema([
                                 Select::make('type')
-                                ->label(__('publications.type'))
+                                ->label(__('polipublications::publications.type'))
                                 ->options([
-                                    'journal' => __('publications.journal'),
-                                    'conference' => __('publications.conference'),
-                                    'workshop' => __('publications.workshop'),
-                                    'book' => __('publications.book'),
-                                    'thesis' => __('publications.thesis'),
-                                    'other' => __('publications.other'),
+                                    'journal' => __('polipublications::publications.journal'),
+                                    'conference' => __('polipublications::publications.conference'),
+                                    'workshop' => __('polipublications::publications.workshop'),
+                                    'book' => __('polipublications::publications.book'),
+                                    'thesis' => __('polipublications::publications.thesis'),
+                                    'other' => __('polipublications::publications.other'),
                                 ])
                                 ->required()
                                 ->columnSpan(3),
                                 TextInput::make('year')
-                                ->label(__('publications.year'))
+                                ->label(__('polipublications::publications.year'))
                                 ->columnSpan(3),
                             TextInput::make('doi')
-                                ->label(__('publications.doi'))
+                                ->label(__('polipublications::publications.doi'))
                                 ->columnSpan(3),
                             TextInput::make('issn')
-                                ->label(__('publications.issn'))
+                                ->label(__('polipublications::publications.issn'))
                                 ->columnSpan(3),
                             TextInput::make('isbn')
-                                ->label(__('publications.isbn'))
+                                ->label(__('polipublications::publications.isbn'))
                                 ->columnSpan(3),
                                 Toggle::make('is_published')
-                                    ->label(__('publications.is_published'))
+                                    ->label(__('polipublications::publications.is_published'))
                                     ->columnSpanFull(),
 
                     ])->columnSpan(1)
@@ -189,21 +189,21 @@ class PublicationResource extends Resource
 
     public static function getNavigationLabel(): string
     {
-        return __('Publications');
+        return __('polipublications::Publications');
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __('Publications');
+        return __('polipublications::Publications');
     }
 
     public static function getLabel(): ?string
     {
-        return __('Publications');
+        return __('polipublications::Publications');
     }
 
     public static function getModelLabel(): string
     {
-        return __('Publications');
+        return __('polipublications::Publications');
     }
 }
