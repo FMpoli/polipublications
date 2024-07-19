@@ -8,12 +8,33 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('polipublications_table', function (Blueprint $table) {
+        Schema::create('polipublications_publications', function (Blueprint $table) {
             $table->id();
-
-            // add fields
-
+            $table->string("title");
+            $table->string("slug");
+            $table->string("authors");
+            $table->string("type");
+            $table->string("source")->nullable();
+            $table->string("publisher")->nullable();
+            $table->string("volume")->nullable();
+            $table->string("pages")->nullable();
+            $table->date("year");
+            $table->string("doi")->nullable();
+            $table->string("issn")->nullable();
+            $table->string("isbn")->nullable();
+            $table->integer("order")->default(0);
+            $table->boolean("is_published")->default(1);
             $table->timestamps();
+            $table->softDeletes();
+
         });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('polipublications_publications');
     }
 };
